@@ -118,8 +118,14 @@ const Config = use(`Env`)
 Config.get('filename.key.subkey', 'fallback_value')
 ```
 
+#### Public
+`public` folder is used for the static route handling by express.js. Any file in this directory can be directly accessed by entering the url: `http://hostname/path`
+
 #### Resources
 `resources` folder contains your application's resources like static assets, views and other similar files. Inside this directory, contains `views` folder which is used as default views directory.
+
+#### Storage
+`storage` folder is like a warehouse for the application. You may use this folder as you see fit or may not even use it. Usually, it is a good idea to store logs, session files and other intermediate files in this folder.
 
 ## Author
 
