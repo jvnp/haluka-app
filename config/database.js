@@ -41,7 +41,7 @@ module.exports = {
 	| Later, these connections can be used by `using()` method in Database provider.
 	|
 	| @example:
-	| var mongo2 = use('Database').using('mongo2')
+	| var mongo2 = use('Database').using('mongodb2')
 	|
 	*/
 	connections: {
