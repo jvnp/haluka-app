@@ -1,0 +1,36 @@
+{
+  "name": "haluka-app",
+  "version": "1.0.0",
+  "description": "A lightweight batteries included Express.js Wrapper.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "npm run start",
+    "serve:dev": "NODE_ENV=develop nodemon index.js",
+    "start": "node index.js",
+    "lint": "eslint .",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hacktivistic/haluka-app.git"
+  },
+  "keywords": [
+    "haluka",
+    "boxa",
+    "express.js",
+    "service-providers"
+  ],
+  "author": "Robin Panta <hacktivistic@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hacktivistic/haluka-app/issues"
+  },
+  "homepage": "https://github.com/hacktivistic/haluka-app#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "haluka": "^1.1.0-beta.1",
+    "pug": "^2.0.3",
+    "youch": "^2.0.10",
+    "youch-terminal": "^1.0.0"
+  }
+}
