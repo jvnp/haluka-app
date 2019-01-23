@@ -1,6 +1,6 @@
 {
   "name": "haluka-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight batteries included Express.js Wrapper.",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/hacktivistic/haluka-app#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "haluka": "^1.1.0-beta.1",
+    "haluka": "^1.2.0",
     "pug": "^2.0.3",
     "youch": "^2.0.10",
     "youch-terminal": "^1.0.0"
