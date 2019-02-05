@@ -44,6 +44,10 @@ try {
 		})
 		use('Auth')
 		use('Route').loadRoutePointersFrom(server.appPath('routes.js'))
+
+		// Load Haluka Packages
+		require('./package.js')
+
 		server.listen(app('Env').get('PORT', 3000), function () {
 			console.log()
 			console.log(chalk.bold.green('Haluka App successfully booted.'))
