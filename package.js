@@ -4,4 +4,5 @@
  */
 'use strict'
 
-
+// Helps to load HPM Packages
+const load = use('PackageLoader')
