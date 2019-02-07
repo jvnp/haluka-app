@@ -29,6 +29,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "haluka": "^1.2.0",
+    "inquirer": "^6.2.2",
     "pug": "^2.0.3",
     "youch": "^2.0.10",
     "youch-terminal": "^1.0.0"
