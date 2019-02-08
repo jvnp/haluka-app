@@ -27,7 +27,7 @@ module.exports = {
 	*/
 	saveUninitialized: false,
 	ttl: '10',  // in minutes
-	resave: true,
+	resave: false,
 	unset: 'destroy',
 	cookie: {
 		httpOnly: true,
