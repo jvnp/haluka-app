@@ -1,80 +1,62 @@
 'use strict'
 
-module.exports =  {
+module.exports = {
 
 	/*
 	|--------------------------------------------------------------------------
-	| HTTP Configs
+	| Wildcard
 	|--------------------------------------------------------------------------
 	|
-	| trustProxy: Whether to trust proxy or not.
-	|
+	| Whether the application fires and listens to Wildcard events or not.
+	| Default is false.
 	*/
-	http: {
-		trustProxy: true,
-	},
-
-
-	/*
-	|--------------------------------------------------------------------------
-	| Static Path
-	|--------------------------------------------------------------------------
-	|
-	| Path from which to serve static files.
-	|
-	*/
-	static: app().publicPath(),
+	wildcard: true,
 
 
 	/*
 	|--------------------------------------------------------------------------
-	| POST Configs
+	| Delimiter
 	|--------------------------------------------------------------------------
 	|
-	| limit: Limit of the x-www-form-urlencoded POST data.
+	| The delimiter used to segment event namespaces, Default is `.`.
 	|
 	*/
-	post: {
-		limit: '1mb',
-	},
+	delimiter: '.',
 
 
 	/*
 	|--------------------------------------------------------------------------
-	| Uploads Configs (multipart/form-data)
+	| New Listener
 	|--------------------------------------------------------------------------
 	|
-	| multi: Whether to accept multiple file uploads
-	| limit: Limit of the single uploaded file
+	| Set this to `true` if you want to emit the newListener event.
+ 	| The default value is `true`.
 	|
 	*/
-	uploads: {
-		multi: true,
-		limit: '5mb'
-	},
+	newListener: true,
 
 
 	/*
 	|--------------------------------------------------------------------------
-	| View Engine Configs
+	| Max Listeners
 	|--------------------------------------------------------------------------
 	|
-	| engine: View engine to use.
-	|
-	| [...engines: (express) => { ... } ] : For registering the above used view engine
+	| The maximum amount of listeners that can be assigned to an event.
+	| The Default is 10.
 	|
 	*/
-	views: {
+	maxListeners: 10,
 
-		// Default View Engine
-		default: 'pug',
 
-		// Registering PUG Engine
-		pug: (express) => {
-			express.set('views', app().resourcesPath('views'))
-			express.set('view engine', 'pug')
-		},
-
-	}
+	/*
+	|--------------------------------------------------------------------------
+	| Verbose Memory Leak
+	|--------------------------------------------------------------------------
+	|
+	| Show event name in memory leak message when more than maximum amount of
+	| listeners is assigned, default is false.
+	|
+	*/
+	verboseMemoryLeak: true
 
 }

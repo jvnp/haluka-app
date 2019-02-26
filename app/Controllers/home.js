@@ -8,7 +8,7 @@ const router = use('Router')
  * GET /
  */
 router.get('/', (req, res) => {
-	res.send('Hello!')
+	res.render('home')
 })
 
 module.exports = router

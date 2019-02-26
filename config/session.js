@@ -1,5 +1,7 @@
 'use strict'
 
+var env = use('Env')
+
 module.exports = {
 
 	/*
@@ -9,10 +11,9 @@ module.exports = {
 	|
 	| Specifies which session store to use.
 	|
-	| Available values: `memory` and `file`
-	|
 	*/
-	store: 'memory',
+	store: env.get('SESSION_STORE', 'memory'),
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +27,6 @@ module.exports = {
 	|
 	*/
 	saveUninitialized: false,
-	ttl: '10',  // in minutes
 	resave: false,
 	unset: 'destroy',
 	cookie: {
@@ -35,27 +35,65 @@ module.exports = {
 		secure: false
 	},
 
+
 	/*
 	|--------------------------------------------------------------------------
-	| Available Session Stores
+	| Session Stores
 	|--------------------------------------------------------------------------
 	|
-	| Configs for the currently available session stores.
-	|
-	| memory	: https://npmjs.com/package/memorystore
-	| file		: https://npmjs.com/package/session-file-store
+	| Configs for the available session stores.
 	|
 	*/
 	stores: {
 
+		// Memory Store
 		memory: {
-			checkPeriod: 86400000
+			// Adapter to build memory store
+			adapter: 'memorystore',
 		},
 
+		// File Based Session Store
 		file: {
+			// Adapter to build file store
+			adapter: 'file',
+
+			// Configs to be sent to adapter function
 			path: '',
 			reapAsync: true,
 			reapSyncFallback: true
+		},
+
+
+	},
+
+
+	/*
+	|--------------------------------------------------------------------------
+	| Session Store Adapters
+	|--------------------------------------------------------------------------
+	|
+	| Adapters are functions that set up the session for a store. Every session
+	| store must implement an adapter to build up their stores. Any config passed
+	| from stores can be accessed in `config` object.
+	*/
+
+	adapters: {
+
+		memorystore: /* istanbul ignore next */ 
+		function (expressSession, config) {
+			return expressSession
+		},
+
+		file: /* istanbul ignore next */ 
+		function (expressSession, config) {
+
+			var FileStore = require('session-file-store')(expressSession);
+			var store = new FileStore(config)
+			store.close = function () {
+				clearInterval(store.options.reapIntervalObject)
+			}
+			return store
+
 		}
 
 	}

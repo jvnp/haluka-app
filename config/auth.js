@@ -23,21 +23,38 @@ module.exports = {
 	*/
 	guards: {
 		web: {
-			// Local Driver, it uses Passport's Local Strategy for authentication.
 			strategy: 'local',
+			/**
+			 * Additional configurations to be sent to the strategy can be added here
+			 *
+			 * 	e.g. : usernameField: 'username'
+			 * 	In strategy method, config.usernameFiled would be 'username'
+			 */
+			//usernameField: 'username'
 		},
 
 	},
 
+
+	/*
+	|--------------------------------------------------------------------------
+	| Authentication Strategies
+	|--------------------------------------------------------------------------
+	|
+	| Authentication Strategies are the login strategy that is to be used by
+	| Authentication Guards
+	|
+	*/
 	strategies: {
 
+		// Local Login Strategy based on Passport & Passport-Local
 		local: function (express, config) {
 
 			var passport = require('passport')
 			var LocalStrategy = require('passport-local').Strategy
 
 			// User Model, model must implement passport plugin
-			var User = use('app/Model/User')
+			var User = require('../app/Model/User')
 
 			// Passport configs
 			passport.use(new LocalStrategy(User.authenticate()));

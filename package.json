@@ -1,40 +1,36 @@
 {
   "name": "haluka-app",
-  "version": "1.2.1",
-  "description": "A lightweight batteries included Express.js Wrapper",
+  "version": "1.0.0",
+  "description": "A lightweight application development framework for Node.js",
   "main": "index.js",
-  "scripts": {
-    "serve": "npm run start",
-    "serve:dev": "NODE_ENV=develop nodemon index.js",
-    "start": "node index.js",
-    "lint": "eslint .",
-    "test": ""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jsaxe/haluka-app.git"
-  },
-  "engines": {
-    "node": ">=7.10.1"
-  },
-  "keywords": [
-    "haluka",
-    "boxa",
-    "express.js",
-    "service-providers"
-  ],
   "author": "Robin Panta <hacktivistic@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jsaxe/haluka-app/issues"
+  "scripts": {
+    "start": "node index.js ",
+    "serve": "node index.js",
+    "serve:dev": "NODE_ENV=develop nodemon index.js",
+    "test": "NODE_ENV=test mocha --globals use,map,app,TestServer --reporter spec --bail --check-leaks --no-deprecation  test/",
+    "test:cover": "NODE_ENV=test nyc --reporter=html npm run test",
+    "coverage": "NODE_ENV=test nyc --reporter=lcov --reporter=text-lcov npm test &&  cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "lint": "eslint ."
   },
-  "homepage": "https://github.com/jsaxe/haluka-app#readme",
   "dependencies": {
     "chalk": "^2.4.2",
-    "haluka": "^1.3.4",
-    "inquirer": "^6.2.2",
+    "haluka": "^2.0.0-beta.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
     "pug": "^2.0.3",
     "youch": "^2.0.10",
     "youch-terminal": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.12.0",
+    "mocha": "^6.0.0",
+    "nyc": "^13.1.0",
+    "supertest": "^3.4.1"
   }
 }
