@@ -1,9 +1,9 @@
 /**
- * @name Routes
+ * @name WebRoutes
  * @desc Houses the routes for the application
  */
 'use strict'
-const Route = use('Route')
+const { Route, to } = use('Route')
 
 /**
 |--------------------------------------------------------------------------
@@ -11,7 +11,7 @@ const Route = use('Route')
 |--------------------------------------------------------------------------
 |
 | This file is used for pointing the routes to their respective controlller
-| file while in turn implements `express.Router` for handling the routes.
+| file for handling the routes.
 | This file makes it easier to pack all and manage routes in an efficient
 | way.
 |
