@@ -24,11 +24,11 @@ module.exports = (callback) => {
 			// Setup Database
 			use('Database').setup().then(() => {
 				use('Auth')
+				// // Register Routes
+				use('Route').Route.loadRoutePointersFrom(app.routesPath('web.js'))
+				// // Fire Up The HTTP Server
+				app.listen(env.get('PORT', 3000), callback)
 			})
-			// // Register Routes
-			use('Route').Route.loadRoutePointersFrom(app.routesPath('web.js'))
-			// // Fire Up The HTTP Server
-			app.listen(env.get('PORT', 3000), callback)
 
 		}
 	)
