@@ -17,9 +17,8 @@ module.exports = (callback) => {
 		function () {
 			// Setup Database
 			use('Database').setup().then(() => {
-				//
+				if (typeof callback === 'function') { callback() }
 			})
 		}
 	)
-	if (typeof callback === 'function') { callback() }
 }
