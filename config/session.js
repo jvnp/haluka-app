@@ -58,7 +58,7 @@ module.exports = {
 			adapter: 'file',
 
 			// Configs to be sent to adapter function
-			path: '',
+			path: app().storagePath('session'),
 			reapAsync: true,
 			reapSyncFallback: true
 		},
