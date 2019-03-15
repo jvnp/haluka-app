@@ -11,6 +11,8 @@ const Haluka = require('haluka')
 
 var app = new Haluka(require('path').resolve(__dirname, '../../'))
 
+module.exports = (callback) => {
+
 before((done) => {
 	app.slash(AppData,
 		async function () {
@@ -21,6 +23,7 @@ before((done) => {
 			use('Auth')
 			global.TestServer = app.getExpress()
 			console.log()
+			callback()
 			done()
 		})
 })
@@ -28,3 +31,5 @@ before((done) => {
 after((done) => {
 	use('Database').closeAll().then(done)
 })
+
+}

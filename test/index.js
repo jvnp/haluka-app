@@ -1,5 +1,10 @@
 // Test Boostrapper script
-require('../system/bootstrap/test')
+var tester = require('../system/bootstrap/test')
 
-// Test Case Files
-require('./Controllers/homeTest')
+tester(() => {
+
+	require('./Controllers/homeTest')
+	//
+
+})
+
