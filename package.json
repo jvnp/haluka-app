@@ -1,6 +1,6 @@
 {
   "name": "haluka-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A lightweight application development framework for Node.js",
   "main": "index.js",
   "author": "Robin Panta <hacktivistic@gmail.com>",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "chalk": "^2.4.2",
-    "haluka": "^2.0.0",
+    "haluka": "https://github.com/jsaxe/haluka",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
