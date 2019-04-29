@@ -5,11 +5,12 @@
 'use strict'
 
 const UserSchema = require('../Schema/UserSchema')
+const Model = use('Database').default().model('User', UserSchema);
 
-class User extends UserSchema {
+class User extends Model {
 
 	// methods inside
 
 }
 
-model.exports = use('Database').default().model('User', User);
+module.exports = User
