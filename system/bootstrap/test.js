@@ -9,27 +9,27 @@
 const AppData = require('../../app/app')
 const Haluka = require('haluka')
 
+// Booting the App
 var app = new Haluka(require('path').resolve(__dirname, '../../'))
 
 module.exports = (callback) => {
-
-before((done) => {
 	app.slash(AppData,
-		async function () {
+		function () {
+			// Load Environment Variables
+			use('Env')
+			// Register Event Listeners
 			require('./events')
+			// Bootstrap Server
 			app.bootstrapServer(AppData.middlewares)
-			use('Route').Route.loadRoutePointersFrom(app.routesPath('web.js'))
-			await use('Database').setup()
-			use('Auth')
-			global.TestServer = app.getExpress()
-			console.log()
-			callback()
-			done()
-		})
-})
+			// Setup Database
+			use('Database').setup().then(() => {
+				use('Route').Route.loadRoutePointersFrom(app.routesPath('web.js'))
+				callback()
+			})
 
-after((done) => {
-	use('Database').closeAll().then(done)
-})
-
+		}
+	)
 }
+
+//}
+

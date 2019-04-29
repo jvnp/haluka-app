@@ -8,7 +8,7 @@ describe('Home Controller', function () {
 
 		it ('should send proper response', function () {
 
-			request(TestServer)
+			// request(TestServer)
 			// 	.get('/')
 			// 	.expect('Hello!', done)
 
