@@ -30,6 +30,8 @@ tester(async () => {
 	// Run the tests.
 	mocha.run(function(failures) {
 		var exitCode = failures ? 1 : 0;  // exit with non-zero status if there were failures
-		process.exit(exitCode)
+		use('Database').default().dropDatabase().then(() => {
+			process.exit(exitCode)
+		})
 	});
 })
